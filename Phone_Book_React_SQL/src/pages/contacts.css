@@ -1,0 +1,13 @@
+.unexpectedErrorDiv{
+    width: 50%;
+    height: 100px;
+    background-color: #fffcf9;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+}

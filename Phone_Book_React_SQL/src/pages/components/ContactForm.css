@@ -1,0 +1,73 @@
+#contactForm {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    min-width: 190px;
+    max-width: 550px;
+    height: 75%;
+    max-height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all .4s ease;
+}
+
+#contactForm.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+.fa-times {
+    align-self: flex-end;
+    font-size: 40px;
+    margin: 40px;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+.fa-times:hover {
+    transform: scale(1.1)
+}
+
+.fields {
+    width: 80%;
+}
+
+.fields>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fields>div>i {
+    font-size: 25px;
+    width: 40px;
+}
+
+.fields>div>input {
+    height: 50px;
+    width: 60%;
+    border: none;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin: 15px 0;
+    text-indent: 30px;
+}
+
+.fields>div>input:focus {
+    border-color: #16a085;
+    color: #16a085;
+    transition: 0.2s ease;
+}
+
+.fields>div>input.errorRequired {
+    border-color: #bd3500;
+    color: #bd3500;
+}
