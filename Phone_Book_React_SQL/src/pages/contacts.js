@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import AppHeader from "./components/AppHeader.js.js";
-import ContactsList from "./components/ContactsList.js.js";
+import AppHeader from "./components/AppHeader";
+import ContactsList from "./components/ContactsList";
 import ContactForm from "./components/ContactForm";
 import "./contacts.css";
 
@@ -16,6 +16,12 @@ class Contacts extends Component {
     editID: "",
     showUnexpError: false,
   };
+
+  constructor(props) {
+    super(props);
+    this.contactForm = React.createRef();
+    this.contactList = React.createRef();
+  }
 
   componentDidMount() {
     fetch("/getContacts", {
@@ -48,9 +54,10 @@ class Contacts extends Component {
 
   render() {
     return (
-      <div onClick={this.hideUnexpError}>
+      <div onClick={this.hideErrAndForm}>
         <AppHeader search={this.search} logout={this.logout} />
         <ContactsList
+          ref={this.contactList}
           contacts={
             this.state.filteredUsers.length > 0
               ? this.state.filteredUsers
@@ -61,6 +68,7 @@ class Contacts extends Component {
           edit={this.edit}
         />
         <ContactForm
+          ref={this.contactForm}
           submitForm={this.submitForm}
           status={this.state.status}
           name={this.getName}
@@ -114,8 +122,19 @@ class Contacts extends Component {
       });
   };
 
-  hideUnexpError = () => {
+  hideErrAndForm = e => {
+    e.stopPropagation();
+
     this.setState({ showUnexpError: false });
+
+    // Close Form
+    const container = this.contactForm.current.contactFormCotnainer.current;
+    const addUser = this.contactList.current.addUser.current;
+
+    if (!container.contains(e.target) && !addUser.contains(e.target)) {
+      const contactForm = document.getElementById("contactForm");
+      contactForm.classList.remove("active");
+    }
   };
 
   delete = e => {

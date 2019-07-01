@@ -1,10 +1,15 @@
-import React, { Component } from 'react';
-import './ContactForm.css';
+import React, { Component } from "react";
+import "./ContactForm.css";
 
 class ContactForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.contactFormCotnainer = React.createRef();
+  }
   render() {
     return (
-      <div id="contactForm">
+      <div ref={this.contactFormCotnainer} id="contactForm">
         <i onClick={this.close} className="fas fa-times"></i>
         <div className="fields">
           <div className="nameField">
@@ -38,9 +43,9 @@ class ContactForm extends Component {
               className="phone"
               type="text"
               placeholder={
-                this.props.status === 'Add Contact'
-                  ? 'Phone Number*'
-                  : 'Phone Number'
+                this.props.status === "Add Contact"
+                  ? "Phone Number*"
+                  : "Phone Number"
               }
             />
           </div>
@@ -59,11 +64,11 @@ class ContactForm extends Component {
   }
 
   close = () => {
-    const contactForm = document.getElementById('contactForm');
-    const button = document.getElementById('submit');
-    button.classList.remove('add', 'edit');
+    const contactForm = document.getElementById("contactForm");
+    const button = document.getElementById("submit");
+    button.classList.remove("add", "edit");
 
-    contactForm.classList.remove('active');
+    contactForm.classList.remove("active");
   };
 }
 

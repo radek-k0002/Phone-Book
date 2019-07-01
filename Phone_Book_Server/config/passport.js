@@ -47,11 +47,12 @@ module.exports = (passport) => {
     })
 
     passport.deserializeUser((id, done) => {
-        connection.query(`SELECT * FROM users WHERE email = "${id.email}"`, (err, results) => {
-            if (err) throw err
-            done(err, id)
+        // connection.query(`SELECT * FROM users WHERE email = "${id.email}"`, (err, results) => {
+        //     if (err) throw err
+        done(null, id)
+            // done(err, id)
             // done(err, results[0].id)
 
-        })
+        // })
     })
 }
