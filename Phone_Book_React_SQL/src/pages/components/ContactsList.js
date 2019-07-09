@@ -26,7 +26,10 @@ class ContactsList extends Component {
                 <div className="phone">{el.phone}</div>
               </div>
               <div className="icons-container">
-                <i onClick={this.props.edit} className="fas fa-user-edit"></i>
+                <i
+                  onClick={this.props.edit}
+                  className="editUser fas fa-user-edit"
+                ></i>
                 <i onClick={this.props.delete} className="fas fa-trash-alt"></i>
               </div>
             </div>
@@ -35,25 +38,6 @@ class ContactsList extends Component {
       </main>
     );
   }
-
-  add = () => {
-    const contactForm = document.getElementById("contactForm");
-
-    const button = document.getElementById("submit");
-    button.classList.add("add");
-    button.innerHTML = "Add Contact";
-
-    contactForm.classList.toggle("active");
-  };
-
-  edit = () => {
-    const contactForm = document.getElementById("contactForm");
-    const button = document.getElementById("submit");
-    button.classList.add("edit");
-    button.innerHTML = "Edit Contact";
-
-    contactForm.classList.toggle("active");
-  };
 }
 
 export default ContactsList;

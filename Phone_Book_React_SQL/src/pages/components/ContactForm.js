@@ -5,11 +5,11 @@ class ContactForm extends Component {
   constructor(props) {
     super(props);
 
-    this.contactFormCotnainer = React.createRef();
+    this.contactFormContainer = React.createRef();
   }
   render() {
     return (
-      <div ref={this.contactFormCotnainer} id="contactForm">
+      <div ref={this.contactFormContainer} id="contactForm">
         <i onClick={this.close} className="fas fa-times"></i>
         <div className="fields">
           <div className="nameField">

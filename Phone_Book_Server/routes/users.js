@@ -131,7 +131,7 @@ router.get("/contacts", ensureAuthenticated, (req, res) => {
 //GET ALL CONTACTS FROM DB
 router.post("/getContacts", ensureAuthenticated, (req, res) => {
     const query = `SELECT id, name, notes, phone_number as phone FROM contacts WHERE email_user="${req.session.user.email}"`
-    // connection.query(`SELECT id, name, notes, phone_number as phone FROM contacts WHERE email_user="${req.session.user.email}"`, (err, results) => {
+
     connection.query(query, (err, results) => {
 
         if (err) return res.send({
@@ -151,7 +151,6 @@ router.delete("/contacts/:id", ensureAuthenticated, (req, res) => {
     const query = `DELETE FROM contacts WHERE email_user="${req.session.user.email}" && id=${req.params.id}`;
     connection.query(query, (err, results) => {
 
-        // connection.query(`DELETE FROM contacts WHERE email_user="${req.session.user.email}" && id=${req.params.id}`, (err, results) => {
         if (err) return res.send({
             uError: "UnexpectedError"
         })
@@ -229,7 +228,6 @@ router.put("/contacts/:id", ensureAuthenticated, (req, res) => {
 router.post("/contacts/refresh", ensureAuthenticated, (req, res) => {
     res.send("status: refreshed")
 })
-
 
 //LOG OUT
 router.get("/logout", (req, res) => {

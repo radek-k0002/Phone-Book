@@ -128,10 +128,15 @@ class Contacts extends Component {
     this.setState({ showUnexpError: false });
 
     // Close Form
-    const container = this.contactForm.current.contactFormCotnainer.current;
+    const container = this.contactForm.current.contactFormContainer.current;
     const addUser = this.contactList.current.addUser.current;
 
-    if (!container.contains(e.target) && !addUser.contains(e.target)) {
+    // Do no close when
+    if (
+      !container.contains(e.target) &&
+      !addUser.contains(e.target) &&
+      !e.target.classList.contains("editUser")
+    ) {
       const contactForm = document.getElementById("contactForm");
       contactForm.classList.remove("active");
     }

@@ -3,6 +3,7 @@ const cors = require("cors")
 const session = require("express-session");
 const path = require('path');
 const passport = require("passport")
+const favicon = require("serve-favicon")
 
 const app = express();
 
@@ -12,7 +13,9 @@ app.set("views", path.join(__dirname, "views"));
 
 app.set("view engine", "pug");
 
-app.use(express.static(path.join(__dirname, "public", "build")));
+app.use(express.static("public"), express.static(path.join(__dirname, "public", "build")), express.static("favicon"));
+
+app.use(favicon(path.join(__dirname, "public", "favicon", "favicon.ico")))
 
 app.use(express.json());
 app.use(express.urlencoded({

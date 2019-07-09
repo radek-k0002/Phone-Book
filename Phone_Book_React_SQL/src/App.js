@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import SignUpForm from "./pages/SignUpForm";
 import SignInForm from "./pages/SignInForm";
 import Contacts from "./pages/contacts";
+import "babel-polyfill";
 import "./App.css";
+require("es6-promise").polyfill();
+require("isomorphic-fetch");
 
 function App() {
   return (

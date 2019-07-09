@@ -4,10 +4,19 @@ main {
 
 .contacts {
     max-width: 600px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding-bottom: 60px;
     margin: auto;
 }
@@ -21,7 +30,6 @@ main {
     background-color: white;
     /* border-bottom: 1px solid black; */
     -webkit-box-shadow: 0px 0px 90px -20px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 90px -20px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 90px -20px rgba(0, 0, 0, 0.75);
 }
 
@@ -32,22 +40,36 @@ main {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
     transition: all .5s ease;
 }
 
 .fa-plus:hover {
-    transform: translate(-50%, -50%) rotate(360deg) scale(1.2)
+    -webkit-transform: translate(-50%, -50%) rotate(360deg) scale(1.2);
+        -ms-transform: translate(-50%, -50%) rotate(360deg) scale(1.2);
+            transform: translate(-50%, -50%) rotate(360deg) scale(1.2)
 }
 
 .contactContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 90%;
     border-bottom: 1px solid black;
     padding: 20px 0;
     font-size: 14px;
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
     transition: all .2s ease;
 }
 
@@ -87,10 +109,19 @@ main {
 
 .icons-container {
     margin: 0 15px 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .icons-container>i {
@@ -98,6 +129,8 @@ main {
     margin: 5px auto;
     font-size: 28px;
     cursor: pointer;
+    -webkit-transition: all .4s ease;
+    -o-transition: all .4s ease;
     transition: all .4s ease;
 }
 
@@ -110,7 +143,9 @@ main {
 }
 
 .icons-container>i:hover {
-    transform: scale(1.1)
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1)
 }
 
 
@@ -121,8 +156,22 @@ main {
         bottom: 0;
         left: 0;
         -webkit-box-shadow: none;
-        -moz-box-shadow: none;
         box-shadow: none;
         margin-bottom: 50px;
+    }
+}
+
+/* IE 10+ */
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+    .addUser {
+        top: 40px;
+        margin-bottom: 80px;
+    }
+
+    .contactContainer {
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
     }
 }
