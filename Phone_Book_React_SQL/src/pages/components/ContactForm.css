@@ -2,14 +2,12 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
     width: 100%;
     min-width: 190px;
     max-width: 550px;
     height: 75%;
-    max-height: 800px;
+    min-height: 350px;
+    max-height: 500px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -31,6 +29,7 @@
     -webkit-transition: all .4s ease;
     -o-transition: all .4s ease;
     transition: all .4s ease;
+    z-index: 100000;
 }
 
 #contactForm.active {
@@ -45,7 +44,7 @@
     -ms-flex-item-align: end;
     align-self: flex-end;
     font-size: 40px;
-    margin: 40px;
+    margin: 10px;
     cursor: pointer;
     -webkit-transition: all .4s ease;
     -o-transition: all .4s ease;
@@ -100,4 +99,25 @@
 .fields>div>input.errorRequired {
     border-color: #bd3500;
     color: #bd3500;
+}
+
+#submit{
+    min-height: 40px;
+    margin: 10px auto
+}
+
+@media (max-height: 500px){
+    #contactForm{
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+@media (min-height: 750px) and (orientation: landscape){
+    #contactForm.active{
+        -webkit-transform: translate(-50%, 0%) scale(1);
+        -ms-transform: translate(-50%, 0%) scale(1);
+        transform: translate(-50%, 0%) scale(1);
+        top: 100px;
+    }
 }
