@@ -1,9 +1,11 @@
-html
+<!DOCTYPE html>
+html(lang="pl")
     head
-        meta(name="viewport" content="width=device-width, initial-scale=1")
-        link(
-          href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600&display=swap",
-          rel="stylesheet")
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600&display=swap",
+            rel="stylesheet")
         //- FAVICON
         link(rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png")
         link(rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png")
@@ -14,12 +16,11 @@ html
         meta(name="msapplication-TileColor" content="#da532c")
         meta(name="msapplication-config" content="/favicon/browserconfig.xml")
         meta(name="theme-color" content="#ffffff")
-
         title Phone Book
         link(rel="stylesheet", href="/errors.css")
-    body
-        .E401
-            h1 401
-            h2 You are not authorized for selected action
-            div
-                a(href="/") Go to Homepage
+        body
+            .E401
+                h1 401
+                h2 You are not authorized for selected action
+                div
+                    a(href="/") Go to Homepage
